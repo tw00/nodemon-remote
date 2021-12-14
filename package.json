@@ -1,0 +1,40 @@
+{
+  "name": "remotemon",
+  "version": "0.0.0-development",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tw00/remotemon.git"
+  },
+  "description": "Simple remote control for node.js apps.",
+  "keywords": [
+    "cli",
+    "monitor",
+    "remote",
+    "github",
+    "webhook",
+    "http",
+    "development",
+    "restart",
+    "autoload",
+    "terminal"
+  ],
+  "bin": {
+    "remotemon": "./bin/remotemon.js"
+  },
+  "main": "./lib/remote",
+  "scripts": {
+    "dev": "DEBUG=true nodemon ./bin/remotemon.js"
+  },
+  "dependencies": {
+    "debug": "^4.3.3",
+    "rcfile": "^1.0.3",
+    "update-notifier": "^5.1.0"
+  },
+  "peerDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  }
+}
