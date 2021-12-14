@@ -2,15 +2,15 @@
 
 Drop-in replacement for [nodemon](https://nodemon.io/) with HTTP remote control and support for custom commands.
 
-# How to use
+## How to use it
 
-## Installation
+### Installation
 
 ```bash
 npm install --save remotemon
 ```
 
-## Create a config: `.remoterc.js`
+### Create a config: `.remoterc.js`
 
 ```js
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
 };
 ```
 
-## Send nodemon restart command
+### Send nodemon restart command
 
 ```bash
 curl -X POST \
@@ -33,7 +33,7 @@ curl -X POST \
   --data '{ "cmd": "nodemon:restart" }'
 ```
 
-## Send custom remote command
+### Send custom remote command
 
 ```bash
 curl -X POST \
@@ -42,7 +42,7 @@ curl -X POST \
   --data '{ "cmd": "checkout", "branch": "main" }'
 ```
 
-## Github Webhook Integration
+### Github Webhook Integration (TBD)
 
 ```
 http://<endpoint>:2020/webhook
