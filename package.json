@@ -1,10 +1,11 @@
 {
-  "name": "remotemon",
+  "name": "nodemon-remote",
+  "homepage": "https://github.com/tw00/nodemon-remote#readme",
   "version": "0.0.0-development",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tw00/remotemon.git"
+    "url": "https://github.com/tw00/nodemon-remote.git"
   },
   "description": "Simple remote control for node.js apps.",
   "keywords": [
@@ -20,11 +21,11 @@
     "terminal"
   ],
   "bin": {
-    "remotemon": "./bin/remotemon.js"
+    "nodemon-remote": "./bin/nodemon-remote.js"
   },
   "main": "./lib/remote",
   "scripts": {
-    "dev": "DEBUG=true nodemon ./bin/remotemon.js"
+    "dev": "DEBUG=true nodemon ./bin/nodemon-remote.js"
   },
   "dependencies": {
     "debug": "^4.3.3",

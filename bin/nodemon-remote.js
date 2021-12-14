@@ -11,7 +11,6 @@ const options = cli.parse(process.argv);
 const mon = nodemon(options);
 mon.on("log", (msg) => {
   if (!options.quiet) {
-    // logger(msg.colour);
     logger(msg.message);
   }
 });

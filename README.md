@@ -1,4 +1,4 @@
-# Remotemon
+# Nodemon-Remote
 
 Drop-in replacement for [nodemon](https://nodemon.io/) with HTTP remote control and support for custom commands.
 
@@ -7,7 +7,7 @@ Drop-in replacement for [nodemon](https://nodemon.io/) with HTTP remote control 
 ### Installation
 
 ```bash
-npm install --save remotemon
+npm install --save nodemon-remote
 ```
 
 ### Create a config: `.remoterc.js`
