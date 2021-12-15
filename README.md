@@ -48,5 +48,19 @@ curl -X POST \
 http://<endpoint>:2020/webhook
 ```
 
-![](./img/webhook-config.png)
+```js
+module.exports = {
+  // ...
+  webhook: {
+    label: "preview",
+    cmd: [
+      "git fetch --all",
+      "git checkout '${ref}'",
+      "npm ci",
+      "nodemon:restart",
+    ],
+  },
+};
+```
 
+![](./img/webhook-config.png)
