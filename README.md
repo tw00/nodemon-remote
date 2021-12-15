@@ -1,5 +1,9 @@
 # Nodemon-Remote
 
+<p align="center">
+  <img src="./img/logo.svg" alt="Nodemon-Remote Logo">
+</p>
+
 Drop-in replacement for [nodemon](https://nodemon.io/) with HTTP remote control and support for custom commands.
 
 ## How to use it
@@ -32,6 +36,11 @@ curl -X POST \
   --header "Authorization: BEARER <MY_SECRET_ACCESS_KEY>" \
   --data '{ "cmd": "nodemon:restart" }'
 ```
+
+Available build-in commands:
+
+- `nodemon:restart`: Restart nodemon
+- `nodemon:reset`: Reset all settings
 
 ### Send custom remote command
 
