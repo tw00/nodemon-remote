@@ -80,22 +80,24 @@ module.exports = {
 };
 ```
 
-1. Got to webhook settings (https://github.com/<org>/<project>/settings/hooks/new)
+1. Got to webhook settings (`https://github.com/<org>/<project>/settings/hooks/new`)
 
-2. Enter payload URL, select `application/json` and enter secret:
+2. Enter payload URL:
 
 ```
 http://<endpoint>:2020/webhook
 ```
 
+3. Select `application/json` and enter secret
+
 ![](./img/webhook-config.png)
 
-3. Select `Let me select individual events.`
+4. Select `Let me select individual events.`
 
-4. Enable `Pull requests` only
+5. Enable `Pull requests` only
 
 ![](./img/webhook-options.png)
 
-5. Hit `Add Webhook`
+6. Hit `Add Webhook`
 
-6. Assign label configured in `config.webhook.label` (`"preview"`) to PR
+7. Assign label configured in `config.webhook.label` (e.g. `"preview"`) to PR
