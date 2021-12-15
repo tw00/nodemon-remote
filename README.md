@@ -37,6 +37,15 @@ module.exports = {
 };
 ```
 
+### Send custom remote command
+
+```bash
+curl -X POST \
+  http://<endpoint>:2020/
+  --header "Authorization: BEARER <MY_SECRET_ACCESS_KEY>" \
+  --data '{ "cmd": "checkout", "branch": "main" }'
+```
+
 ### Send nodemon restart command
 
 ```bash
@@ -50,15 +59,6 @@ Available build-in commands:
 
 - `nodemon:restart`: Restart nodemon
 - `nodemon:reset`: Resets all settings
-
-### Send custom remote command
-
-```bash
-curl -X POST \
-  http://<endpoint>:2020/
-  --header "Authorization: BEARER <MY_SECRET_ACCESS_KEY>" \
-  --data '{ "cmd": "checkout", "branch": "main" }'
-```
 
 ### Github Webhook Integration
 
