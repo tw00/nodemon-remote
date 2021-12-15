@@ -62,7 +62,10 @@ curl -X POST \
 
 ### Github Webhook Integration
 
-Trigger commands based on a configurable label:
+Trigger commands based on a configurable label.
+
+Example: Any PR that has the "preview" label assigned
+and that code is pushed to will get checked out in the remote container.
 
 ```js
 module.exports = {
