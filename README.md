@@ -6,13 +6,21 @@
 
 Drop-in replacement for [nodemon](https://nodemon.io/) with HTTP remote control and support for custom commands.
 
+## Application: Emphemeral environments
+
+- Run your node app with `nodemon-remote` in your deployed environment and instantly switch to branches and new commits without the need to re-deploy
+- `nodemon-remomte` suppots Github Webhooks. Once a configurable label (`"preview"` by default) is assigned to a PR, the remote container will automatically switch to the latest commit of the corresponding branch
+- ⚠️ WARNING ⚠️ Using `nodemon-remote` is potentially dagenrous. Make sure to use a strong access key and don't use `nodemon-remote` in production.
+
 ## How to use it
 
 ### Installation
 
 ```bash
+npm install --save nodemon # install nodemon as peer dependency
 npm install --save nodemon-remote
 # or
+npm install -g nodemon
 npx nodemon-remote <nodemon cli arguments>
 ```
 
@@ -36,6 +44,9 @@ module.exports = {
   },
 };
 ```
+
+For safety reasons the following characters are removed from arguments:
+` " $ & ' ( ) * ; < > ? [ \ ] `` { | } ~ space tab new-line `
 
 ### Send custom remote command
 
