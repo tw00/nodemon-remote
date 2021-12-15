@@ -12,6 +12,8 @@ Drop-in replacement for [nodemon](https://nodemon.io/) with HTTP remote control 
 
 ```bash
 npm install --save nodemon-remote
+# or
+npx nodemon-remote <nodemon cli arguments>
 ```
 
 ### Create a config: `.remoterc.js`
@@ -23,7 +25,14 @@ module.exports = {
   commands: {
     // Custom commands (arguments are always escaped)
     checkout: { cmd: "git checkout '${branch}'" },
-    pull: { cmd: "git pull origin '${branch}'" },
+    fetch: { cmd: "git fetch --all" },
+    // Define multiple commands
+    pullAndInstall: {
+      cmd: [
+        "git pull origin '${branch}'"
+        "npm ci"
+      ]
+    },
   },
 };
 ```
@@ -40,7 +49,7 @@ curl -X POST \
 Available build-in commands:
 
 - `nodemon:restart`: Restart nodemon
-- `nodemon:reset`: Reset all settings
+- `nodemon:reset`: Resets all settings
 
 ### Send custom remote command
 
@@ -51,10 +60,44 @@ curl -X POST \
   --data '{ "cmd": "checkout", "branch": "main" }'
 ```
 
-### Github Webhook Integration (TBD)
+### Github Webhook Integration
+
+Trigger commands based on a configurable label:
+
+```js
+module.exports = {
+  // ...
+  webhook: {
+    label: "preview",
+    // Commands will run, if a PR with the label above is modified
+    cmd: [
+      "git fetch --all",
+      "git checkout '${ref}'",
+      "npm ci",
+      "nodemon:restart",
+    ],
+  },
+};
+```
+
+1. Got to webhook settings (`https://github.com/<org>/<project>/settings/hooks/new`)
+
+2. Enter payload URL:
 
 ```
 http://<endpoint>:2020/webhook
 ```
 
+3. Select `application/json` and enter secret
+
 ![](./img/webhook-config.png)
+
+4. Select `Let me select individual events.`
+
+5. Enable `Pull requests` only
+
+![](./img/webhook-options.png)
+
+6. Hit `Add Webhook`
+
+7. Assign label configured in `config.webhook.label` (e.g. `"preview"`) to PR
